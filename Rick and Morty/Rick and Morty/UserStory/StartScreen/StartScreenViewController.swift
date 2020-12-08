@@ -26,7 +26,7 @@ final class StartScreenViewController: UIViewController {
     private func setupLayout() {
         let imageView = UIImageView()
         view.addSubview(imageView)
-        imageView.image = UIImage(named: "launch")
+        imageView.image = UIImage(named: Constants.launchImage)
         imageView.frame = view.frame
     }
 }

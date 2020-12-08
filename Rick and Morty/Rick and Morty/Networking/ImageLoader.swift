@@ -23,7 +23,7 @@ class ImageLoader {
                 completionHandler(image)
             }
         } else {
-            let placeholder = UIImage(named: "emptyAvatar") ?? UIImage()
+            let placeholder = UIImage(named: Constants.emptyAvatarImage) ?? UIImage()
             DispatchQueue.main.async {
                 completionHandler(placeholder)
             }

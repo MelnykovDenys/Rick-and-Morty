@@ -34,11 +34,12 @@ class DescriptionTableViewCell: UITableViewCell {
         nameLabel.textAlignment = .center
         nameLabel.textColor = #colorLiteral(red: 1, green: 0.2756245587, blue: 0.3160831999, alpha: 1)
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10)
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         
         contentView.addSubview(locationLabel)
         locationLabel.numberOfLines = 0
@@ -47,8 +48,8 @@ class DescriptionTableViewCell: UITableViewCell {
         locationLabel.textColor = #colorLiteral(red: 0.5461897921, green: 0.2824049212, blue: 1, alpha: 1)
         NSLayoutConstraint.activate([
             locationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
-            locationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            locationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10)
+            locationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            locationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -59,8 +60,8 @@ class DescriptionTableViewCell: UITableViewCell {
         originLabel.textColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
         NSLayoutConstraint.activate([
             originLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor),
-            originLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            originLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10)
+            originLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            originLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
         originLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -71,17 +72,19 @@ class DescriptionTableViewCell: UITableViewCell {
         createdLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         NSLayoutConstraint.activate([
             createdLabel.topAnchor.constraint(equalTo: originLabel.bottomAnchor, constant: 20),
-            createdLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            createdLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10)
+            createdLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            createdLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            createdLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
         createdLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func configure(with character: Character) {
         nameLabel.text = character.name
-        locationLabel.text = "Location: " + character.location.name
-        originLabel.text = "Origin: " + character.origin.name
-        let dataFormatter = DateFormatter()
-        createdLabel.text = "Created: " + dataFormatter.formatISO(date: character.created)
+        locationLabel.text = "Location: ".localized + character.location.name
+        originLabel.text = "Origin: ".localized + character.origin.name
+        if let date = DateFormatter.formatISO(date: character.created) {
+            createdLabel.text = "Created: ".localized + date
+        }
     }
 }

@@ -10,4 +10,7 @@ import Foundation
 enum Constants {
     
     static let defaultPage = 1
+    static let launchImage = "launch"
+    static let characterListIdentifier = "CharactersListTableViewCell"
+    static let emptyAvatarImage = "emptyAvatar"
 }

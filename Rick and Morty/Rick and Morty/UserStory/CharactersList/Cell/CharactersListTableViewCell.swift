@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharactersListTableViewCell: UITableViewCell {
+final class CharactersListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -20,9 +20,9 @@ class CharactersListTableViewCell: UITableViewCell {
     }
     
     func configure(with character: Character) {
-        nameLabel.text = "Name: " + character.name
-        genderLabel.text = "Gender: " + character.gender
-        speciesLabel.text = "Species: " + character.species
+        nameLabel.text = "Name: ".localized + character.name
+        genderLabel.text = "Gender: ".localized + character.gender
+        speciesLabel.text = "Species: ".localized + character.species
     }
     
     func updateAvatar(with image: UIImage) {

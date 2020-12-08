@@ -10,12 +10,12 @@ import UIKit
 
 extension UIAlertController {
     
-    static func errorAlert(with message: String? = nil) -> UIAlertController {
-        let alert = UIAlertController(title: "Error",
-                                      message: message ?? "Sorry, server is not available now, please try again later",
+    static func errorAlert(with message: String?) -> UIAlertController {
+        let alert = UIAlertController(title: "Error".localized,
+                                      message: message,
                                       preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Ok".localized, style: .default, handler: nil)
         alert.addAction(okAction)
         
         return alert

@@ -26,6 +26,7 @@ class AvatarTableViewCell: UITableViewCell {
         
         contentView.addSubview(avatarImageView)
         contentView.pinToEdges(avatarImageView)
+        avatarImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         avatarImageView.contentMode = .scaleAspectFit
     }
     

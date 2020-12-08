@@ -24,7 +24,7 @@ class CharactersListView: UIView {
         backgroundColor = .white
         
         addSubview(tableView)
-        tableView.register(UINib(nibName: "CharactersListTableViewCell", bundle: nil), forCellReuseIdentifier: "CharactersListTableViewCell")
+        tableView.register(UINib(nibName: Constants.characterListIdentifier, bundle: nil), forCellReuseIdentifier: Constants.characterListIdentifier)
         pinToEdges(tableView)
     }
     

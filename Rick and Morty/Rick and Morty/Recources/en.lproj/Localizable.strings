@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Rick and Morty
+
+  Created by Mac on 08.12.2020.
+  
+*/
+
+"Name: " = "Name: ";
+"Gender: " = "Gender: ";
+"Species: " = "Species: ";
+"Location: " = "Location: ";
+"Origin: " = "Origin: ";
+"Created: " = "Created: ";
+"Error" = "Error";
+"Ok" = "Ok";
+"Characters" = "Characters";

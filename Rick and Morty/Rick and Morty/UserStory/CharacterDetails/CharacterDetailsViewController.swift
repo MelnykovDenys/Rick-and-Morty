@@ -34,7 +34,6 @@ final class CharacterDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.tableView.dataSource = self
-        contentView.tableView.delegate = self
     }
 }
 
@@ -59,11 +58,5 @@ extension CharacterDetailsViewController: UITableViewDataSource {
         case .none:
             return emptyCell
         }
-    }
-}
-
-extension CharacterDetailsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
     }
 }

@@ -9,10 +9,10 @@ import Foundation
 
 extension DateFormatter {
     
-    func formatISO(date: String) -> String {
-        dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        guard let date = self.date(from: date) else { return "uknown" }
+    static func formatISO(date: String) -> String? {
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        guard let date = dateFormatter.date(from: date) else { return nil }
         dateFormatter.dateFormat = "MM-dd-yyyy"
         return dateFormatter.string(from: date)
     }

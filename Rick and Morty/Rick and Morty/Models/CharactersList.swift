@@ -11,8 +11,8 @@ struct CharactersList: Decodable {
     let info: Info
     let characters: [Character]
     
-    enum CodingKeys: String, CodingKey {
-
+    private enum CodingKeys: String, CodingKey {
+        
         case info
         case characters = "results"
     }
@@ -28,8 +28,8 @@ struct Info: Decodable {
 struct Character: Decodable {
     
     let id: Int
-    let name : String
-    let status : String
+    let name: String
+    let status: String
     let species: String
     let type: String
     let gender: String

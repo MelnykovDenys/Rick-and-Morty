@@ -27,12 +27,12 @@ final class CharactersListViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "Characters"
+        navigationItem.title = "Characters".localized
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "A-Z", style: .plain, target: self, action: #selector(sortTapped))
     }
     
     @objc private func sortTapped() {
-        viewModel.characters = viewModel.characters.sorted(by: { $1.name > $0.name })
+        viewModel.characters.sort { $0.name < $1.name }
         contentView.tableView.reloadData()
     }
 }
@@ -62,7 +62,7 @@ extension CharactersListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CharactersListTableViewCell", for: indexPath) as? CharactersListTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.characterListIdentifier, for: indexPath) as? CharactersListTableViewCell else {
             return UITableViewCell()
         }
         let character = viewModel.characters[indexPath.row]
