@@ -44,3 +44,5 @@ class CharactersListView: UIView {
         tableView.tableFooterView = nil
     }
 }
+//
+
